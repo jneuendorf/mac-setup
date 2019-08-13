@@ -12,3 +12,4 @@ A script for setting up a new macos machine for my needs
 - [ ] application configs (e.g. Atom)
 - [ ] application licenses
 - [ ] syncing unsynced data (e.g. `~/Pictures`)
+- [ ] macOS settings (mostly `defaults ...`, see https://github.com/jneuendorf/AdvancedSettingsMacOS)
