@@ -1,0 +1,57 @@
+{
+    "name": "mac-setup",
+    "author": "Jim Neuendorf",
+    "version": "0.0.1",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "module": "dist/mac-setup.esm.js",
+    "typings": "dist/index.d.ts",
+    "scripts": {
+        "start": "tsdx watch",
+        "build": "tsdx build",
+        "test": "tsdx test",
+        "test:watch": "tsdx test --watch",
+        "test:coverage": "tsdx test --coverage",
+        "lint": "tsdx lint",
+        "prepare": "tsdx build",
+        "size": "size-limit",
+        "analyze": "size-limit --why"
+    },
+    "devDependencies": {
+        "@size-limit/preset-small-lib": "^7.0.8",
+        "husky": "^7.0.4",
+        "size-limit": "^7.0.8",
+        "tsdx": "^0.14.1",
+        "tslib": "^2.3.1",
+        "typescript": "^4.6.2"
+    },
+    "peerDependencies": {},
+    "files": [
+        "dist",
+        "src"
+    ],
+    "engines": {
+        "node": ">=12"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "tsdx lint"
+        }
+    },
+    "prettier": {
+        "printWidth": 80,
+        "semi": false,
+        "singleQuote": true,
+        "trailingComma": "es5"
+    },
+    "size-limit": [
+        {
+            "path": "dist/mac-setup.cjs.production.min.js",
+            "limit": "10 KB"
+        },
+        {
+            "path": "dist/mac-setup.esm.js",
+            "limit": "10 KB"
+        }
+    ]
+}
