@@ -2,18 +2,15 @@ import childProcess from 'child_process'
 import util from 'util'
 
 import { Process } from './abstract'
-import { isError } from "../utils"
-
+import { isError } from '../utils'
 
 const exec = util.promisify(childProcess.exec)
 
-
 type ScutilData = {
-    ComputerName: string,
-    LocalHostName: string,
-    HostName: string,
+    ComputerName: string
+    LocalHostName: string
+    HostName: string
 }
-
 
 export class ScutilProcess extends Process<ScutilData> {
     outFile = 'scutil'
@@ -40,8 +37,7 @@ export class ScutilProcess extends Process<ScutilData> {
                     await this.log(stderr)
                 }
                 data[key] = stdout.trim()
-            }
-            catch (error) {
+            } catch (error) {
                 if (!(isError(error) && error.message.includes('not set'))) {
                     throw error
                 }
@@ -51,6 +47,7 @@ export class ScutilProcess extends Process<ScutilData> {
     }
 
     runRestore(data: ScutilData): Promise<void> {
+        console.log(data)
         throw new Error('Method not implemented.')
     }
 }

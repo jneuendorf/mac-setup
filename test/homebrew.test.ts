@@ -1,6 +1,7 @@
-import { HomebrewFormulaeProcess, HomebrewCasksProcess } from '../src/processes/homebrew'
-import { ScutilProcess } from '../src/processes/scutil'
-
+import {
+    HomebrewFormulaeProcess,
+    HomebrewCasksProcess,
+} from '../src/processes/homebrew'
 
 describe.skip('homebrew', () => {
     it('formulae', async () => {
@@ -21,18 +22,5 @@ describe.skip('homebrew', () => {
         })
         console.log(casks)
         expect(casks).not.toEqual([])
-    })
-})
-
-
-describe('scutil', () => {
-    it('computer names', async () => {
-        const process = new ScutilProcess()
-        const data = await process.backup({
-            skip: false,
-            writeOutFile: false,
-        })
-        console.log(data)
-        expect(data).not.toEqual([])
     })
 })

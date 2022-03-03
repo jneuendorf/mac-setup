@@ -2,9 +2,7 @@ import childProcess from 'child_process'
 import util from 'util'
 import { Process } from './abstract'
 
-
 const exec = util.promisify(childProcess.exec)
-
 
 export class HomebrewFormulaeProcess extends Process<string[]> {
     outFile = 'homebrew-formulae'
@@ -22,8 +20,11 @@ export class HomebrewFormulaeProcess extends Process<string[]> {
         return stdout.trim().split('\n')
     }
 
+    runRestore(data: string[]): Promise<void> {
+        console.log(data)
+        throw new Error('Method not implemented.')
+    }
 }
-
 
 export class HomebrewCasksProcess extends Process<string[]> {
     outFile = 'homebrew-casks'
@@ -44,6 +45,7 @@ export class HomebrewCasksProcess extends Process<string[]> {
     }
 
     runRestore(data: string[]): Promise<void> {
+        console.log(data)
         throw new Error('Method not implemented.')
     }
 }

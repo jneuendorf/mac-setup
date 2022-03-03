@@ -3,13 +3,8 @@ import os from 'os'
 
 import { Process } from './abstract'
 
-
 export class DotFilesProcess extends Process<string[]> {
-    IGNORED_DOT_FILES = new Set([
-        '.DS_Store',
-        '.Trash',
-        '.cache',
-    ])
+    IGNORED_DOT_FILES = new Set(['.DS_Store', '.Trash', '.cache'])
     protected outFile = 'dot-files'
 
     shouldSkip(): boolean {
@@ -25,11 +20,14 @@ export class DotFilesProcess extends Process<string[]> {
     async getFiles(): Promise<string[]> {
         const home = os.homedir()
         const files = await fs.readdir(home, { withFileTypes: true })
-        const dotFiles = files.filter(file => (
-            file.isFile()
-            && !this.IGNORED_DOT_FILES.has(file.name)
-            && file.name.startsWith('.'))
-        ).map(file => file.name)
+        const dotFiles = files
+            .filter(
+                file =>
+                    file.isFile() &&
+                    !this.IGNORED_DOT_FILES.has(file.name) &&
+                    file.name.startsWith('.')
+            )
+            .map(file => file.name)
         return dotFiles
     }
 
@@ -38,6 +36,7 @@ export class DotFilesProcess extends Process<string[]> {
     }
 
     runRestore(data: string[]): Promise<void> {
+        console.log(data)
         throw new Error('Method not implemented.')
     }
 }

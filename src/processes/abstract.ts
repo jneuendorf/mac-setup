@@ -1,6 +1,5 @@
 import { constants as FS, promises as fs } from 'fs'
 
-
 export abstract class Process<T> {
     protected abstract outFile: string
 
@@ -17,8 +16,7 @@ export abstract class Process<T> {
     async log(data: string): Promise<void> {
         try {
             await fs.access(this.logFile, FS.F_OK | FS.W_OK)
-        }
-        catch (error) {
+        } catch (error) {
             await fs.writeFile(this.logFile, '')
         }
         await fs.appendFile(this.logFile, data.toString())
@@ -31,13 +29,11 @@ export abstract class Process<T> {
      *   - `writeOutFile` whether to write JSON to `outFile` or not
      * @returns
      */
-    async backup(options: { skip?: boolean, writeOutFile?: boolean } = {}): Promise<T | void> {
+    async backup(
+        options: { skip?: boolean; writeOutFile?: boolean } = {}
+    ): Promise<T | void> {
         const { skip, writeOutFile = true } = options
-        const shouldSkip = (
-            skip === undefined
-                ? !this.shouldSkip
-                : skip
-        )
+        const shouldSkip = skip === undefined ? !this.shouldSkip : skip
         if (!shouldSkip) {
             try {
                 const data = await this.runBackup()
@@ -45,13 +41,11 @@ export abstract class Process<T> {
                     await this.writeOutFile(data)
                 }
                 return data
-            }
-            catch (error) {
+            } catch (error) {
                 if (error instanceof Object) {
                     await this.log(error.toString())
                     // await fs.appendFile(this.logFile, error.toString())
-                }
-                else {
+                } else {
                     throw error
                 }
             }
@@ -61,7 +55,7 @@ export abstract class Process<T> {
     async writeOutFile(data: T): Promise<void> {
         await fs.writeFile(
             `${this.outFile}.json`,
-            JSON.stringify(data, undefined, 2),
+            JSON.stringify(data, undefined, 2)
         )
     }
 }

@@ -4,7 +4,9 @@ export function isString(object: any): object is string {
 
 export function isError(object: any): object is Error {
     return (
-        object.name && isString(object.name)
-        && object.message && isString(object.message)
+        object.name &&
+        isString(object.name) &&
+        object.message &&
+        isString(object.message)
     )
 }
