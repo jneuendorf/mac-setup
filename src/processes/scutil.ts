@@ -13,7 +13,7 @@ type ScutilData = {
 }
 
 export class ScutilProcess extends Process<ScutilData> {
-    outFile = 'scutil'
+    name = 'scutil'
     command = 'scutil --get {key}'
     data_template: ScutilData = {
         ComputerName: '',

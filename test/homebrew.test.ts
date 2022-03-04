@@ -3,14 +3,14 @@ import {
     HomebrewCasksProcess,
 } from '../src/processes/homebrew'
 
-describe.skip('homebrew', () => {
+describe('homebrew', () => {
     it('formulae', async () => {
         const process = new HomebrewFormulaeProcess()
         const formulae = await process.backup({
             skip: false,
             writeOutFile: false,
         })
-        console.log(formulae)
+        // console.log(formulae)
         expect(formulae).not.toEqual([])
     })
 
@@ -20,7 +20,7 @@ describe.skip('homebrew', () => {
             skip: false,
             writeOutFile: false,
         })
-        console.log(casks)
+        // console.log(casks)
         expect(casks).not.toEqual([])
     })
 })

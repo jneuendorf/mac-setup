@@ -11,7 +11,7 @@ type ScutilData = {
 }
 
 export class SshProcess extends Process<string[]> {
-    outFile = 'scutil'
+    name = 'scutil'
     command = 'scutil --get {key}'
     data_template: ScutilData = {
         ComputerName: '',

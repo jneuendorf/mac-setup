@@ -5,7 +5,7 @@ import { Process } from './abstract'
 
 export class DotFilesProcess extends Process<string[]> {
     IGNORED_DOT_FILES = new Set(['.DS_Store', '.Trash', '.cache'])
-    protected outFile = 'dot-files'
+    protected name = 'dot-files'
 
     shouldSkip(): boolean {
         return false

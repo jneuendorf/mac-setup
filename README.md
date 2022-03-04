@@ -14,6 +14,9 @@ A script for setting up a new macos machine for my needs
 - https://github.com/wilsonmar/mac-setup
 - https://github.com/AkkeyLab/mac-auto-setup
 - https://github.com/kaishin/Setup
+- https://github.com/andrewconnell/osx-install
+- https://git.herrbischoff.com/awesome-macos-command-line/about/
+- https://github.com/CodelyTV/dotfiles
 
 
 
@@ -38,6 +41,9 @@ A script for setting up a new macos machine for my needs
 - `...Backup` ;)
 - install homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 - `xcode-select --install`
+- Create new SSH key? See https://github.com/AkkeyLab/mac-auto-setup/blob/master/setup.sh#L24-L28
+
+
 
 ---
 

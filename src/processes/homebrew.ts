@@ -5,7 +5,7 @@ import { Process } from './abstract'
 const exec = util.promisify(childProcess.exec)
 
 export class HomebrewFormulaeProcess extends Process<string[]> {
-    outFile = 'homebrew-formulae'
+    name = 'homebrew-formulae'
     command = 'brew leaves'
 
     shouldSkip(): boolean {
@@ -27,7 +27,7 @@ export class HomebrewFormulaeProcess extends Process<string[]> {
 }
 
 export class HomebrewCasksProcess extends Process<string[]> {
-    outFile = 'homebrew-casks'
+    name = 'homebrew-casks'
     command = 'brew list --cask'
 
     shouldSkip(): boolean {

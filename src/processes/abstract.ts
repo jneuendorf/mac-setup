@@ -1,7 +1,7 @@
 import { constants as FS, promises as fs } from 'fs'
 
 export abstract class Process<T> {
-    protected abstract outFile: string
+    protected abstract name: string
 
     abstract shouldSkip(): boolean
 
@@ -10,7 +10,7 @@ export abstract class Process<T> {
     abstract runRestore(data: T): Promise<void>
 
     get logFile(): string {
-        return `${this.outFile}.log`
+        return `${this.name}.log`
     }
 
     async log(data: string): Promise<void> {
@@ -54,7 +54,7 @@ export abstract class Process<T> {
 
     async writeOutFile(data: T): Promise<void> {
         await fs.writeFile(
-            `${this.outFile}.json`,
+            `${this.name}.json`,
             JSON.stringify(data, undefined, 2)
         )
     }
