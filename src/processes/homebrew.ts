@@ -1,8 +1,5 @@
-import childProcess from 'child_process'
-import util from 'util'
+import { exec } from '../utils'
 import { Process } from './abstract'
-
-const exec = util.promisify(childProcess.exec)
 
 export class HomebrewFormulaeProcess extends Process<string[]> {
     name = 'homebrew-formulae'

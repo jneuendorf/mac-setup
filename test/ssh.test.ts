@@ -11,7 +11,9 @@ describe('SSH files', () => {
         if (sshFiles) {
             for (const file of sshFiles) {
                 try {
-                    expect(['config', 'known_hosts', '.DS_Store']).toContain(file)
+                    expect(['config', 'known_hosts', '.DS_Store']).toContain(
+                        file
+                    )
                 } catch (error) {
                     // Check for (id_rsa, id_ras.pub) pairs
                     if (file.endsWith('.pub')) {

@@ -1,10 +1,5 @@
-import childProcess from 'child_process'
-import util from 'util'
-
 import { Process } from './abstract'
-import { isError } from '../utils'
-
-const exec = util.promisify(childProcess.exec)
+import { isError, exec } from '../utils'
 
 type ScutilData = {
     ComputerName: string
