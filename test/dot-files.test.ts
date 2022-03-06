@@ -8,6 +8,6 @@ describe('dot files', () => {
             writeOutFile: false,
         })
         // console.log(dotFiles)
-        expect(dotFiles).toContain('.bashrc')
+        expect(dotFiles).not.toEqual([])
     })
 })

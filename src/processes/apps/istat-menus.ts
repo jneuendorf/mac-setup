@@ -8,13 +8,14 @@ export class IStatMenusProcess extends Process<string[]> {
     private command = `osascript ${path.resolve(
         __dirname,
         '../../istat-menus.applescript'
-    )}`
+    )} ${process.cwd()}`
 
     shouldSkip(): boolean {
         throw new Error('Method not implemented.')
     }
 
     async runBackup(): Promise<string[]> {
+        console.log('running', this.command)
         const { stderr, stdout } = await exec(this.command)
         if (stderr) {
             await this.log(stderr)
