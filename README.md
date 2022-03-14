@@ -2,6 +2,15 @@
 
 A script for setting up a new macos machine for my needs
 
+1. prepare dotfiles
+    1. Chrome (or descendant) bookmarks
+    1. VSCode Extensions
+    1. PyCharm Plugins
+    1. `defaults`
+        - some may be located in `~/Library/Preferences`
+1. use mackup
+
+
 
 ## Related Projects
 
