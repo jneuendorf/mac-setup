@@ -6,9 +6,12 @@ A script for setting up a new macos machine for my needs
     1. Chrome (or descendant) bookmarks
     1. VSCode Extensions
     1. PyCharm Plugins
+       - located in `~/Library/Application Support/JetBrains/PyCharm2021.3` and thus handled by mackup, but `configuration_files` don't include all versions (see https://github.com/lra/mackup/pull/1807)
     1. `defaults`
         - some may be located in `~/Library/Preferences`
 1. use mackup
+    - enable running from source project instead of assuming homebrew-installed in order to support unofficial sources, i.e. pull requests
+1. output standalone executable file using [PyInstaller](https://pyinstaller.readthedocs.io/en/v4.10/usage.html) so that a blank machine can run the setup without installing Python etc. beforehand.
 
 
 
