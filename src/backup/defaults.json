@@ -1,0 +1,2609 @@
+{
+    "https://github.com/yannbertrand/macos-defaults/blob/master/defaults.yml": [
+        {
+            "folder": "dock",
+            "name": "Dock",
+            "description": "The Dock is a prominent feature of macOS.\nIt is used to launch applications and to switch between running applications.\nBy default you can find it on the bottom of your screen.\n\nYou can customize it as you like.\n",
+            "keys": [
+                {
+                    "key": "orientation",
+                    "domain": "com.apple.dock",
+                    "title": "Position",
+                    "description": "Set the Dock position",
+                    "param": {
+                        "type": "string",
+                        "values": [
+                            "left",
+                            "bottom",
+                            "right"
+                        ]
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ],
+                    "after": "killall Dock"
+                },
+                {
+                    "key": "tilesize",
+                    "domain": "com.apple.dock",
+                    "title": "Icon size",
+                    "description": "Set the icon size of Dock items in pixels.",
+                    "param": {
+                        "type": "int"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina"
+                    ],
+                    "after": "killall Dock"
+                },
+                {
+                    "key": "autohide",
+                    "domain": "com.apple.dock",
+                    "title": "Autohide",
+                    "description": "Autohides the Dock. You can toggle the Dock using `⌥ alt`+`⌘ cmd`+`d`.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ],
+                    "after": "killall Dock"
+                },
+                {
+                    "key": "autohide-time-modifier",
+                    "domain": "com.apple.dock",
+                    "title": "Autohide animation time",
+                    "description": "Change the Dock opening and closing animation times.",
+                    "param": {
+                        "type": "float"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ],
+                    "requirements": [
+                        {
+                            "folder": "dock",
+                            "key": "autohide",
+                            "name": "com.apple.dock autohide",
+                            "value": true
+                        }
+                    ],
+                    "after": "killall Dock"
+                },
+                {
+                    "key": "autohide-delay",
+                    "domain": "com.apple.dock",
+                    "title": "Autohide delay",
+                    "description": "Change the Dock opening delay.",
+                    "param": {
+                        "type": "float"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ],
+                    "requirements": [
+                        {
+                            "folder": "dock",
+                            "key": "autohide",
+                            "name": "com.apple.dock autohide",
+                            "value": true
+                        }
+                    ],
+                    "after": "killall Dock"
+                },
+                {
+                    "key": "show-recents",
+                    "domain": "com.apple.dock",
+                    "title": "Show recents",
+                    "description": "Show recently used apps in a separate section of the Dock.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ],
+                    "after": "killall Dock"
+                },
+                {
+                    "key": "mineffect",
+                    "domain": "com.apple.dock",
+                    "title": "Minimize animation effect",
+                    "description": "Change the Dock minimize animation.",
+                    "param": {
+                        "type": "string",
+                        "values": [
+                            "genie",
+                            "scale",
+                            "suck"
+                        ]
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ],
+                    "requirements": [
+                        {
+                            "folder": "dock",
+                            "key": "autohide",
+                            "name": "com.apple.dock autohide",
+                            "value": true
+                        }
+                    ],
+                    "after": "killall Dock"
+                }
+            ]
+        },
+        {
+            "folder": "screenshots",
+            "name": "Screenshots",
+            "description": "On a Mac, you can take screenshots using:\n\n- `⌘ cmd`+`⇧ shift`+`3` for fullscreen.\n- `⌘ cmd`+`⇧ shift`+`4` for a selection. Then use `space` to capture an entire app.\n- `⌘ cmd`+`⇧ shift`+`5` to open the Screenshot app.\n\nThere are a few keys you can customize.\n",
+            "keys": [
+                {
+                    "key": "disable-shadow",
+                    "domain": "com.apple.screencapture",
+                    "title": "Disable shadow",
+                    "description": "Disable screenshot shadow when capturing an app (`⌘ cmd`+`⇧ shift`+`4` then `space`).",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ]
+                },
+                {
+                    "key": "include-date",
+                    "domain": "com.apple.screencapture",
+                    "title": "Include date",
+                    "description": "Include date and time in screenshot filenames.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ]
+                },
+                {
+                    "key": "location",
+                    "domain": "com.apple.screencapture",
+                    "title": "Set location",
+                    "description": "Set default screenshot location.",
+                    "param": {
+                        "type": "string"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ],
+                    "after": "killall SystemUIServer"
+                },
+                {
+                    "key": "show-thumbnail",
+                    "domain": "com.apple.screencapture",
+                    "title": "Display thumbnail",
+                    "description": "Choose whether to display a thumbnail after taking a screenshot.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ]
+                },
+                {
+                    "key": "type",
+                    "domain": "com.apple.screencapture",
+                    "title": "Choose screenshot format",
+                    "description": "Choose the screenshots image format.",
+                    "param": {
+                        "type": "string"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ]
+                }
+            ]
+        },
+        {
+            "folder": "finder",
+            "name": "Finder",
+            "description": "The Finder is the default file manager on macOS.\nIt is responsible for the launching of other applications,\nand for the overall user management of files, disks, and network volumes.\nIn a tradition dating back to the Classic Mac OS of the 1980s and 1990s,\nthe Finder icon is the smiling screen of a computer, known as the Happy Mac logo.\n\nSome of its features can be customized.\n",
+            "keys": [
+                {
+                    "key": "QuitMenuItem",
+                    "domain": "com.apple.finder",
+                    "title": "Quit",
+                    "description": "Add a quit option to the Finder.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ],
+                    "after": "killall Finder"
+                },
+                {
+                    "key": "AppleShowAllExtensions",
+                    "domain": "NSGlobalDomain",
+                    "title": "Show extensions",
+                    "description": "Show all file extensions in the Finder.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ],
+                    "after": "killall Finder"
+                },
+                {
+                    "key": "AppleShowAllFiles",
+                    "domain": "com.apple.Finder",
+                    "title": "Show hidden files",
+                    "description": "Show hidden files in the Finder. You can toggle the value using `⌘ cmd`+`⇧ shift`+`.`.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina"
+                    ],
+                    "after": "killall Finder"
+                },
+                {
+                    "key": "FXEnableExtensionChangeWarning",
+                    "domain": "com.apple.finder",
+                    "title": "Changing file extension warning",
+                    "description": "Choose whether to display a warning when changing a file extension.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ],
+                    "after": "killall Finder"
+                },
+                {
+                    "key": "NSDocumentSaveNewDocumentsToCloud",
+                    "domain": "NSGlobalDomain",
+                    "title": "Save to disk or iCloud by default",
+                    "description": "Choose whether the default file save location is on disk or iCloud",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Catalina"
+                    ]
+                },
+                {
+                    "key": "NSToolbarTitleViewRolloverDelay",
+                    "domain": "NSGlobalDomain",
+                    "title": "Adjust toolbar title rollover delay",
+                    "description": "Choose the delay of the auto-hidden document-proxy icon.",
+                    "param": {
+                        "type": "float"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur"
+                    ],
+                    "after": "killall Finder"
+                },
+                {
+                    "key": "NSTableViewDefaultSizeMode",
+                    "domain": "NSGlobalDomain",
+                    "title": "Set sidebar icon size",
+                    "description": "Choose the size of Finder sidebar icons",
+                    "param": {
+                        "type": "int"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina"
+                    ],
+                    "after": "killall Finder"
+                }
+            ]
+        },
+        {
+            "folder": "menubar",
+            "name": "Menu Bar",
+            "description": "The menu bar runs along the top of the screen on your Mac. Use the menus and icons in the menu bar to choose commands, perform tasks, and check status.",
+            "keys": [
+                {
+                    "key": "FlashDateSeparators",
+                    "domain": "com.apple.menuextra.clock",
+                    "title": "Flash clock time separators",
+                    "description": "When enabled, the clock indicator (which by default is the colon) will flash on and off each second.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ],
+                    "after": "killall SystemUIServer"
+                },
+                {
+                    "key": "DateFormat",
+                    "domain": "com.apple.menuextra.clock",
+                    "title": "Set menubar digital clock format",
+                    "description": "This setting configures the time and date format for the menubar digital clock.\nAccepted values depend on your Language & Region settings.\n\n- `ss` for seconds.\n- `HH` for 24-hour clock.\n- `EEE` for 3-letter day of the week.\n- `d MMM` for day of the month and 3-letter month.\n",
+                    "param": {
+                        "type": "string"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina"
+                    ]
+                }
+            ]
+        },
+        {
+            "folder": "mission-control",
+            "name": "Mission Control",
+            "description": "Formerly known as Spaces, Mission Control allows a user to do the following:\n\n- `⌃ ctrl`+`↑ up` view all open application windows.\n- `⌃ ctrl`+`↓ down` view all open application windows of a specific application.\n- `⌘ cmd`+`F3 Mission Control` hide all application windows and show the desktop.\n- `⌃ ctrl`+`← left`/`→ right` manage application windows across multiple virtual desktops.\n- manage application windows across multiple monitors.\n",
+            "keys": [
+                {
+                    "key": "mru-spaces",
+                    "domain": "com.apple.dock",
+                    "title": "Rearrange automatically",
+                    "description": "Choose whether to rearrange Spaces automatically.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ],
+                    "after": "killall Dock"
+                }
+            ]
+        },
+        {
+            "folder": "feedback-assistant",
+            "name": "Feedback Assistant",
+            "description": "The Feedback Assistant app allows user to submit reports for developer or public betas.",
+            "keys": [
+                {
+                    "key": "Autogather",
+                    "domain": "com.apple.appleseed.FeedbackAssistant",
+                    "title": "Autogather",
+                    "description": "Choose whether to autogather large files when submitting a feedback report.\n\nCan result in a slow Mac and important upload metrics.\n",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur"
+                    ]
+                }
+            ]
+        },
+        {
+            "folder": "xcode",
+            "name": "Xcode",
+            "description": "Xcode is an integrated development environment for macOS containing a suite of software development tools developed by Apple for developing software for macOS, iOS, iPadOS, watchOS, and tvOS.",
+            "keys": [
+                {
+                    "key": "IDEAdditionalCounterpartSuffixes",
+                    "domain": "com.apple.dt.Xcode",
+                    "title": "Add Additional Counterpart Suffixes",
+                    "description": "Add additional counterpart suffixes that Xcode should consider in the \"Related Items > Counterparts\" menu.",
+                    "param": {
+                        "type": "array"
+                    },
+                    "versions": [
+                        "Catalina"
+                    ],
+                    "after": "killall Xcode"
+                },
+                {
+                    "key": "ShowBuildOperationDuration",
+                    "domain": "com.apple.dt.Xcode",
+                    "title": "Show Build Durations",
+                    "description": "Show build durations in the Activity Viewer in Xcode's toolbar at the top of the workspace window.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Catalina"
+                    ],
+                    "after": "killall Xcode"
+                }
+            ]
+        },
+        {
+            "folder": "simulator",
+            "name": "Simulator",
+            "description": "Installed as part of the Xcode tools, Simulator is a Mac app simulating iPhone, iPad, Apple Watch, or Apple TV environments.",
+            "keys": [
+                {
+                    "key": "ScreenShotSaveLocation",
+                    "domain": "com.apple.iphonesimulator",
+                    "title": "Set screenshot location",
+                    "description": "Set default location for Simulator screenshots.\n\nNote that the folder has to exist in the filesystem.\n",
+                    "param": {
+                        "type": "string"
+                    },
+                    "versions": [
+                        "Catalina"
+                    ]
+                }
+            ]
+        },
+        {
+            "folder": "textedit",
+            "name": "TextEdit",
+            "description": "TextEdit allows you to open and edit rich text, plain text and HTML documents.",
+            "keys": [
+                {
+                    "key": "RichText",
+                    "domain": "com.apple.TextEdit",
+                    "title": "Set default document format",
+                    "description": "Set default document format as rich text (.rtf) or plain text (.txt).",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur"
+                    ],
+                    "after": "killall TextEdit"
+                }
+            ]
+        },
+        {
+            "folder": "timemachine",
+            "name": "Time Machine",
+            "description": "The Time Machine feature allows simple, regular backups of your filesystem.",
+            "keys": [
+                {
+                    "key": "DoNotOfferNewDisksForBackup",
+                    "domain": "com.apple.TimeMachine",
+                    "title": "Don't offer new disks for Time Machine backup",
+                    "description": "Prevent Time Machine from prompting to use newly connected storage as backup volumes.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Catalina"
+                    ]
+                }
+            ]
+        },
+        {
+            "folder": "misc",
+            "name": "Miscellaneous",
+            "description": "All the others `defaults` that don't deserve their own category.",
+            "keys": [
+                {
+                    "key": "DevMode",
+                    "domain": "com.apple.helpviewer",
+                    "title": "Help Menu position",
+                    "description": "Choose whether the Help Menu should be always-on-top.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina",
+                        "Mojave"
+                    ]
+                },
+                {
+                    "key": "enable-spring-load-actions-on-all-items",
+                    "domain": "com.apple.dock",
+                    "title": "Enable spring loading for all Dock items",
+                    "description": "Drag a file over an icon in the Dock, hover, and the application will open. The behaviour is unchanged if the app is already open. This behaviour has been observed with Preview, Quicktime, and iWork (Keynote, Pages, Numbers).",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Monterey",
+                        "Big Sur",
+                        "Catalina"
+                    ],
+                    "after": "killall Dock"
+                },
+                {
+                    "key": "userWantsPlaybackNotifications",
+                    "domain": "com.apple.Music",
+                    "title": "Show Music song notifications",
+                    "description": "Display a notification when a new song starts in the Music app.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Catalina"
+                    ],
+                    "after": "killall Music"
+                },
+                {
+                    "key": "LSQuarantine",
+                    "domain": "com.apple.LaunchServices",
+                    "title": "Disable application quarantine message",
+                    "description": "Turn off the “Application Downloaded from Internet” quarantine warning.\n\n⚠️ Stopped working on Big Sur.\n",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [
+                        "Catalina"
+                    ]
+                }
+            ]
+        }
+    ],
+    "https://github.com/jneuendorf/AdvancedSettingsMacOS/blob/master/options/command_config.py": [
+        {
+            "name": "System",
+            "keys": []
+        },
+        {
+            "name": "General UI/UX",
+            "keys": [
+                {
+                    "key": "reduceTransparency",
+                    "domain": "com.apple.universalaccess",
+                    "title": "reduceTransparency",
+                    "description": "Disable transparency in the menu bar and elsewhere on Yosemite.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "AppleHighlightColor",
+                    "domain": "NSGlobalDomain",
+                    "title": "AppleHighlightColor",
+                    "description": "Set highlight color to",
+                    "param": {
+                        "type": "string"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "AppleShowScrollBars",
+                    "domain": "NSGlobalDomain",
+                    "title": "AppleShowScrollBars",
+                    "description": "When to show scrollbars. Choices: WhenScrolling (When scrolling), Automatic (Automatic), Always (Always)",
+                    "param": {
+                        "type": "string",
+                        "values": [
+                            "Automatic",
+                            "WhenScrolling",
+                            "Always"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "NSUseAnimatedFocusRing",
+                    "domain": "NSGlobalDomain",
+                    "title": "NSUseAnimatedFocusRing",
+                    "description": "Disable the over-the-top focus ring animation.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "NSScrollAnimationEnabled",
+                    "domain": "NSGlobalDomain",
+                    "title": "NSScrollAnimationEnabled",
+                    "description": "Disable smooth scrolling. Uncomment if you\u2019re on an older Mac that messes up the animation.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "NSWindowResizeTime",
+                    "domain": "NSGlobalDomain",
+                    "title": "NSWindowResizeTime",
+                    "description": "Increase window resize speed for Cocoa applications.",
+                    "param": {
+                        "type": "float"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "NSNavPanelExpandedStateForSaveMode",
+                    "domain": "NSGlobalDomain",
+                    "title": "NSNavPanelExpandedStateForSaveMode",
+                    "description": "Expand save panel by default.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "NSNavPanelExpandedStateForSaveMode2",
+                    "domain": "NSGlobalDomain",
+                    "title": "NSNavPanelExpandedStateForSaveMode",
+                    "description": "Expand save panel by default.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "PMPrintingExpandedStateForPrint",
+                    "domain": "NSGlobalDomain",
+                    "title": "PMPrintingExpandedStateForPrint",
+                    "description": "Expand print panel by default.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "PMPrintingExpandedStateForPrint2",
+                    "domain": "NSGlobalDomain",
+                    "title": "PMPrintingExpandedStateForPrint",
+                    "description": "Expand print panel by default.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "Quit When Finished",
+                    "domain": "com.apple.print.PrintingPrefs",
+                    "title": "PrintingPrefsQuitWhenFinished",
+                    "description": "Automatically quit printer app once the print jobs complete.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "NSTextShowsControlCharacters",
+                    "domain": "NSGlobalDomain",
+                    "title": "NSTextShowsControlCharacters",
+                    "description": "Display ASCII control characters using caret notation in standard text views. Try e.g.<br><code>cd /tmp; unidecode \"\\x{0000}\" > cc.txt; open -e cc.txt</code>",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "NSQuitAlwaysKeepsWindows",
+                    "domain": "com.apple.systempreferences",
+                    "title": "NSQuitAlwaysKeepsWindows",
+                    "description": "Disable Resume system-wide.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "NSDisableAutomaticTermination",
+                    "domain": "NSGlobalDomain",
+                    "title": "NSDisableAutomaticTermination",
+                    "description": "Disable automatic termination of inactive apps.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "DialogType",
+                    "domain": "com.apple.CrashReporter",
+                    "title": "CrashReporterDialogTypeNone",
+                    "description": "Disable the crash reporter.",
+                    "param": {
+                        "type": "string",
+                        "values": [
+                            "none"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "AdminHostInfo",
+                    "domain": "/Library/Preferences/com.apple.loginwindow",
+                    "title": "AdminHostInfo",
+                    "description": "Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window.",
+                    "param": {
+                        "type": "ostName"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    },
+                    "sudo": true
+                },
+                {
+                    "key": "NSAutomaticCapitalizationEnabled",
+                    "domain": "NSGlobalDomain",
+                    "title": "NSAutomaticCapitalizationEnabled",
+                    "description": "Disable automatic capitalization as it's annoying when typing code.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "NSAutomaticDashSubstitutionEnabled",
+                    "domain": "NSGlobalDomain",
+                    "title": "NSAutomaticDashSubstitutionEnabled",
+                    "description": "Disable smart dashes as they\u2019re annoying when typing code.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "NSAutomaticPeriodSubstitutionEnabled",
+                    "domain": "NSGlobalDomain",
+                    "title": "NSAutomaticPeriodSubstitutionEnabled",
+                    "description": "Disable automatic period substitution as it\u2019s annoying when typing code.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "NSAutomaticQuoteSubstitutionEnabled",
+                    "domain": "NSGlobalDomain",
+                    "title": "NSAutomaticQuoteSubstitutionEnabled",
+                    "description": "Disable smart quotes as they\u2019re annoying when typing code.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                },
+                {
+                    "key": "NSAutomaticSpellingCorrectionEnabled",
+                    "domain": "NSGlobalDomain",
+                    "title": "NSAutomaticSpellingCorrectionEnabled",
+                    "description": "Disable auto-correct.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall SystemUIServer cfprefsd"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "SSD-specific tweaks",
+            "keys": []
+        },
+        {
+            "name": "Trackpad, mouse, keyboard, Bluetooth accessories, and input",
+            "keys": [
+                {
+                    "key": "TrackpadCornerSecondaryClick",
+                    "domain": "com.apple.driver.AppleBluetoothMultitouch.trackpad",
+                    "title": "bottomRightCornerToRightClick",
+                    "description": "Trackpad: map bottom right corner to right-click.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "2"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "TrackpadRightClick",
+                    "domain": "com.apple.driver.AppleBluetoothMultitouch.trackpad",
+                    "title": "bottomRightCornerToRightClick",
+                    "description": "Trackpad: map bottom right corner to right-click.",
+                    "param": {
+                        "type": "bool",
+                        "values": [
+                            "true"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "com.apple.trackpad.trackpadCornerClickBehavior",
+                    "host": "-currentHost",
+                    "domain": "NSGlobalDomain",
+                    "title": "bottomRightCornerToRightClick",
+                    "description": "Trackpad: map bottom right corner to right-click.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "1"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "com.apple.trackpad.enableSecondaryClick",
+                    "host": "-currentHost",
+                    "domain": "NSGlobalDomain",
+                    "title": "bottomRightCornerToRightClick",
+                    "description": "Trackpad: map bottom right corner to right-click.",
+                    "param": {
+                        "type": "bool",
+                        "values": [
+                            "true"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "com.apple.swipescrolldirection",
+                    "domain": "NSGlobalDomain",
+                    "title": "naturalScrolling",
+                    "description": "Disable \u201cnatural\u201d (Lion-style) scrolling.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "Apple Bitpool Min (editable)",
+                    "domain": "com.apple.BluetoothAudioAgent",
+                    "title": "increaseSoundQualityForBluetoothHeadphones",
+                    "description": "Increase sound quality for Bluetooth headphones/headsets.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "40"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "AppleKeyboardUIMode",
+                    "domain": "NSGlobalDomain",
+                    "title": "AppleKeyboardUIMode",
+                    "description": "Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs).",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "3"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "closeViewScrollWheelToggle",
+                    "domain": "com.apple.universalaccess",
+                    "title": "ctrlZoom",
+                    "description": "Use scroll gesture with the Ctrl (^) modifier key to zoom.",
+                    "param": {
+                        "type": "bool",
+                        "values": [
+                            "true"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "HIDScrollZoomModifierMask",
+                    "domain": "com.apple.universalaccess",
+                    "title": "ctrlZoom",
+                    "description": "Use scroll gesture with the Ctrl (^) modifier key to zoom.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "262144"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "closeViewZoomFollowsFocus",
+                    "domain": "com.apple.universalaccess",
+                    "title": "closeViewZoomFollowsFocus",
+                    "description": "Follow the keyboard focus while zoomed in.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "ApplePressAndHoldEnabled",
+                    "domain": "NSGlobalDomain",
+                    "title": "ApplePressAndHoldEnabled",
+                    "description": "Disable press-and-hold for keys in favor of key repeat.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "KeyRepeat",
+                    "domain": "NSGlobalDomain",
+                    "title": "KeyRepeat",
+                    "description": "Set a blazingly fast keyboard repeat rate.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "1"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "InitialKeyRepeat",
+                    "domain": "NSGlobalDomain",
+                    "title": "KeyRepeat",
+                    "description": "Set a blazingly fast keyboard repeat rate.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "10"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "showInputMenu",
+                    "domain": "/Library/Preferences/com.apple.loginwindow",
+                    "title": "showInputMenu",
+                    "description": "Show language menu in the top right corner of the boot screen.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "sudo": true
+                }
+            ]
+        },
+        {
+            "name": "Screen",
+            "keys": [
+                {
+                    "key": "askForPassword",
+                    "domain": "com.apple.screensaver",
+                    "title": "askForPassword",
+                    "description": "Require password immediately after sleep or screen saver begins.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "1"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "askForPasswordDelay",
+                    "domain": "com.apple.screensaver",
+                    "title": "askForPassword",
+                    "description": "Require password immediately after sleep or screen saver begins.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "0"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "AppleFontSmoothing",
+                    "domain": "NSGlobalDomain",
+                    "title": "AppleFontSmoothing",
+                    "description": "Enable subpixel font rendering on non-Apple LCDs. See <a href=\"Reference: https://github.com/kevinSuttle/macOS-Defaults/issues/17#issuecomment-266633501\">this issue</a>.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "1"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "DisplayResolutionEnabled",
+                    "domain": "/Library/Preferences/com.apple.windowserver",
+                    "title": "DisplayResolutionEnabled",
+                    "description": "Enable HiDPI display modes (requires restart).",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "sudo": true
+                }
+            ]
+        },
+        {
+            "name": "Finder",
+            "keys": [
+                {
+                    "key": "CreateDesktop",
+                    "domain": "com.apple.finder",
+                    "title": "CreateDesktop",
+                    "description": "Show icons on the desktop.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "DisableAllAnimations",
+                    "domain": "com.apple.finder",
+                    "title": "DisableAllAnimations",
+                    "description": "Disable window animations and \"Get Info\" animations.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "NewWindowTarget",
+                    "domain": "com.apple.finder",
+                    "title": "newFinderLocation",
+                    "description": "Set Desktop as the default location for new Finder windows. ",
+                    "param": {
+                        "type": "string",
+                        "values": [
+                            "PfDe"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "NewWindowTargetPath",
+                    "domain": "com.apple.finder",
+                    "title": "newFinderLocation",
+                    "description": "Set Desktop as the default location for new Finder windows. ",
+                    "param": {
+                        "type": "string",
+                        "values": [
+                            "file://${HOME}/Desktop/"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "ShowExternalHardDrivesOnDesktop",
+                    "domain": "com.apple.finder",
+                    "title": "ShowExternalHardDrivesOnDesktop",
+                    "description": "Show icons for external hard drives.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "ShowHardDrivesOnDesktop",
+                    "domain": "com.apple.finder",
+                    "title": "ShowHardDrivesOnDesktop",
+                    "description": "Show icons for hard drives.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "ShowMountedServersOnDesktop",
+                    "domain": "com.apple.finder",
+                    "title": "ShowMountedServersOnDesktop",
+                    "description": "Show icons for servers.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "ShowRemovableMediaOnDesktop",
+                    "domain": "com.apple.finder",
+                    "title": "ShowRemovableMediaOnDesktop",
+                    "description": "Show icons for removable media.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "ShowStatusBar",
+                    "domain": "com.apple.finder",
+                    "title": "ShowStatusBar",
+                    "description": "Show status bar.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "ShowPathbar",
+                    "domain": "com.apple.finder",
+                    "title": "ShowPathbar",
+                    "description": "Show path bar.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "_FXShowPosixPathInTitle",
+                    "domain": "com.apple.finder",
+                    "title": "_FXShowPosixPathInTitle",
+                    "description": "Display full POSIX path as Finder window title.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "_FXSortFoldersFirst",
+                    "domain": "com.apple.finder",
+                    "title": "_FXSortFoldersFirst",
+                    "description": "Keep folders on top when sorting by name.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "FXDefaultSearchScope",
+                    "domain": "com.apple.finder",
+                    "title": "FXDefaultSearchScope",
+                    "description": "When performing a search, search the current folder by default.",
+                    "param": {
+                        "type": "string",
+                        "values": [
+                            "SCcf"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "com.apple.springing.enabled",
+                    "domain": "NSGlobalDomain",
+                    "title": "DirSpringingEnabled",
+                    "description": "Enable spring loading for directories.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "com.apple.springing.delay",
+                    "domain": "NSGlobalDomain",
+                    "title": "DirSpringingDelay",
+                    "description": "Remove the spring loading delay for directories.",
+                    "param": {
+                        "type": "float",
+                        "values": [
+                            "0"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "DSDontWriteNetworkStores",
+                    "domain": "com.apple.desktopservices",
+                    "title": "DSDontWriteStores",
+                    "description": "Avoid creating .DS_Store files on network or USB volumes.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "DSDontWriteUSBStores",
+                    "domain": "com.apple.desktopservices",
+                    "title": "DSDontWriteStores",
+                    "description": "Avoid creating .DS_Store files on network or USB volumes.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "skip-verify",
+                    "domain": "com.apple.frameworks.diskimages",
+                    "title": "diskImageVerification",
+                    "description": "Disable disk image verification.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "skip-verify-locked",
+                    "domain": "com.apple.frameworks.diskimages",
+                    "title": "diskImageVerification",
+                    "description": "Disable disk image verification.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "skip-verify-remote",
+                    "domain": "com.apple.frameworks.diskimages",
+                    "title": "diskImageVerification",
+                    "description": "Disable disk image verification.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "auto-open-ro-root",
+                    "domain": "com.apple.frameworks.diskimages",
+                    "title": "newFinderWindowOnVolumeMount",
+                    "description": "Automatically open a new Finder window when a volume is mounted.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "auto-open-rw-root",
+                    "domain": "com.apple.frameworks.diskimages",
+                    "title": "newFinderWindowOnVolumeMount",
+                    "description": "Automatically open a new Finder window when a volume is mounted.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "OpenWindowForNewRemovableDisk",
+                    "domain": "com.apple.finder",
+                    "title": "newFinderWindowOnVolumeMount",
+                    "description": "Automatically open a new Finder window when a volume is mounted.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "FXPreferredViewStyle",
+                    "domain": "com.apple.finder",
+                    "title": "FXPreferredViewStyle",
+                    "description": "Default view in all Finder windows. Choices: Nlsv (List View), icnv (Icon View), clmv (Column View), Flwv (Cover Flow view)",
+                    "param": {
+                        "type": "string",
+                        "values": [
+                            "icnv",
+                            "Nlsv",
+                            "clmv",
+                            "Flwv"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "WarnOnEmptyTrash",
+                    "domain": "com.apple.finder",
+                    "title": "WarnOnEmptyTrash",
+                    "description": "Disable the warning before emptying the Trash.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                },
+                {
+                    "key": "BrowseAllInterfaces",
+                    "domain": "com.apple.NetworkBrowser",
+                    "title": "BrowseAllInterfaces",
+                    "description": "Enable AirDrop over Ethernet and on unsupported Macs running Lion.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Finder"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Dock, Dashboard, and hot corners",
+            "keys": [
+                {
+                    "key": "mouse-over-hilite-stack",
+                    "domain": "com.apple.dock",
+                    "title": "mouse-over-hilite-stack",
+                    "description": "Enable highlight hover effect for the grid view of a stack (Dock).",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Dock"
+                    }
+                },
+                {
+                    "key": "minimize-to-application",
+                    "domain": "com.apple.dock",
+                    "title": "minimize-to-application",
+                    "description": "Minimize windows into their application&rsquo;s icon.",
+                    "param": {
+                        "type": "bool",
+                        "values": [
+                            "{}"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Dock"
+                    }
+                },
+                {
+                    "key": "show-process-indicators",
+                    "domain": "com.apple.dock",
+                    "title": "show-process-indicators",
+                    "description": "Show indicator lights for open applications in the Dock.",
+                    "param": {
+                        "type": "bool",
+                        "values": [
+                            "{}"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Dock"
+                    }
+                },
+                {
+                    "key": "persistent-apps",
+                    "domain": "com.apple.dock",
+                    "title": "clear persistent-apps",
+                    "description": "Wipe all (default) app icons from the Dock. This is only really useful when setting up a new Mac, or if you don\u2019t use.",
+                    "param": {
+                        "type": "array"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Dock"
+                    }
+                },
+                {
+                    "key": "static-only",
+                    "domain": "com.apple.dock",
+                    "title": "static-only",
+                    "description": "Show only open applications in the Dock.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Dock"
+                    }
+                },
+                {
+                    "key": "launchanim",
+                    "domain": "com.apple.dock",
+                    "title": "launchanim",
+                    "description": "Don\u2019t animate opening applications from the Dock.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Dock"
+                    }
+                },
+                {
+                    "key": "expose-animation-duration",
+                    "domain": "com.apple.dock",
+                    "title": "expose-animation-duration",
+                    "description": "Speed up Mission Control animations.",
+                    "param": {
+                        "type": "float",
+                        "values": [
+                            "0.1"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Dock"
+                    }
+                },
+                {
+                    "key": "expose-group-by-app",
+                    "domain": "com.apple.dock",
+                    "title": "expose-group-by-app",
+                    "description": "Don\u2019t group windows by application in Mission Control (i.e. use the old Expos\u00e9 behavior instead).",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Dock"
+                    }
+                },
+                {
+                    "key": "mcx-disabled",
+                    "domain": "com.apple.dashboard",
+                    "title": "mcx-disabled",
+                    "description": "Disable Dashboard.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Dock"
+                    }
+                },
+                {
+                    "key": "dashboard-in-overlay",
+                    "domain": "com.apple.dock",
+                    "title": "dashboard-in-overlay",
+                    "description": "Don\u2019t show Dashboard as a Space.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Dock"
+                    }
+                },
+                {
+                    "key": "showhidden",
+                    "domain": "com.apple.dock",
+                    "title": "showhidden",
+                    "description": "Make Dock icons of hidden applications translucent.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Dock"
+                    }
+                },
+                {
+                    "key": "showLaunchpadGestureEnabled",
+                    "domain": "com.apple.dock",
+                    "title": "showLaunchpadGestureEnabled",
+                    "description": "Disable the Launchpad gesture (pinch with thumb and three fingers).",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "0"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Dock"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Safari & WebKit ",
+            "keys": [
+                {
+                    "key": "WebKitTabToLinksPreferenceKey",
+                    "domain": "com.apple.Safari",
+                    "title": "tabHighlight",
+                    "description": "Press Tab to highlight each item on a web page.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks",
+                    "domain": "com.apple.Safari",
+                    "title": "tabHighlight",
+                    "description": "Press Tab to highlight each item on a web page.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "ShowFullURLInSmartSearchField",
+                    "domain": "com.apple.Safari",
+                    "title": "ShowFullURLInSmartSearchField",
+                    "description": "Show the full URL in the address bar (note: this still hides the scheme).",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "HomePage",
+                    "domain": "com.apple.Safari",
+                    "title": "HomePage",
+                    "description": "Set Safari\u2019s home page to `about:blank` for faster loading.",
+                    "param": {
+                        "type": "string"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "AutoOpenSafeDownloads",
+                    "domain": "com.apple.Safari",
+                    "title": "AutoOpenSafeDownloads",
+                    "description": "Prevent Safari from opening \u2018safe\u2019 files automatically after downloading.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled",
+                    "domain": "com.apple.Safari",
+                    "title": "WebKit2BackspaceKeyNavigationEnabled",
+                    "description": "Allow hitting the Backspace key to go to the previous page in history.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "ShowFavoritesBar",
+                    "domain": "com.apple.Safari",
+                    "title": "ShowFavoritesBar",
+                    "description": "Hide Safari\u2019s bookmarks bar by default.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "ShowSidebarInTopSites",
+                    "domain": "com.apple.Safari",
+                    "title": "ShowSidebarInTopSites",
+                    "description": "Hide Safari\u2019s sidebar in Top Sites.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "DebugSnapshotsUpdatePolicy",
+                    "domain": "com.apple.Safari",
+                    "title": "DebugSnapshotsUpdatePolicy",
+                    "description": "Disable Safari\u2019s thumbnail cache for History and Top Sites.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "2"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "IncludeInternalDebugMenu",
+                    "domain": "com.apple.Safari",
+                    "title": "IncludeInternalDebugMenu",
+                    "description": "Enable Safari\u2019s debug menu.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "FindOnPageMatchesWordStartsOnly",
+                    "domain": "com.apple.Safari",
+                    "title": "FindOnPageMatchesWordStartsOnly",
+                    "description": "Make Safari\u2019s search banners default to Contains instead of Starts With.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "ProxiesInBookmarksBar",
+                    "domain": "com.apple.Safari",
+                    "title": "ProxiesInBookmarksBar",
+                    "description": "Remove useless icons from Safari\u2019s bookmarks bar.",
+                    "param": {
+                        "type": ")"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "IncludeDevelopMenu",
+                    "domain": "com.apple.Safari",
+                    "title": "IncludeDevelopMenu",
+                    "description": "Enable the Develop menu and the Web Inspector in Safari.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "WebKitDeveloperExtrasEnabledPreferenceKey",
+                    "domain": "com.apple.Safari",
+                    "title": "IncludeDevelopMenu",
+                    "description": "Enable the Develop menu and the Web Inspector in Safari.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled",
+                    "domain": "com.apple.Safari",
+                    "title": "IncludeDevelopMenu",
+                    "description": "Enable the Develop menu and the Web Inspector in Safari.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "WebKitDeveloperExtras",
+                    "domain": "NSGlobalDomain",
+                    "title": "WebKitDeveloperExtras",
+                    "description": "Add a context menu item for showing the Web Inspector in web views.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "WebContinuousSpellCheckingEnabled",
+                    "domain": "com.apple.Safari",
+                    "title": "WebContinuousSpellCheckingEnabled",
+                    "description": "Enable continuous spellchecking.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "WebAutomaticSpellingCorrectionEnabled",
+                    "domain": "com.apple.Safari",
+                    "title": "WebAutomaticSpellingCorrectionEnabled",
+                    "description": "Disable auto-correct.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "AutoFillFromAddressBook",
+                    "domain": "com.apple.Safari",
+                    "title": "AutoFillFromAddressBook",
+                    "description": "Disable AutoFill for addresses.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "AutoFillPasswords",
+                    "domain": "com.apple.Safari",
+                    "title": "AutoFillPasswords",
+                    "description": "Disable AutoFill for passwords.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "AutoFillCreditCardData",
+                    "domain": "com.apple.Safari",
+                    "title": "AutoFillCreditCardData",
+                    "description": "Disable AutoFill for credit card data.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "AutoFillMiscellaneousForms",
+                    "domain": "com.apple.Safari",
+                    "title": "AutoFillMiscellaneousForms",
+                    "description": "Disable AutoFill for miscellaneous data.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "WarnAboutFraudulentWebsites",
+                    "domain": "com.apple.Safari",
+                    "title": "WarnAboutFraudulentWebsites",
+                    "description": "Warn about fraudulent websites.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "WebKitPluginsEnabled",
+                    "domain": "com.apple.Safari",
+                    "title": "WebKitPluginsEnabled",
+                    "description": "Disable plug-ins.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled",
+                    "domain": "com.apple.Safari",
+                    "title": "WebKitPluginsEnabled",
+                    "description": "Disable plug-ins.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "WebKitJavaEnabled",
+                    "domain": "com.apple.Safari",
+                    "title": "WebKitJavaEnabled",
+                    "description": "Disable Java.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled",
+                    "domain": "com.apple.Safari",
+                    "title": "WebKitJavaEnabled",
+                    "description": "Disable Java.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "WebKitJavaScriptCanOpenWindowsAutomatically",
+                    "domain": "com.apple.Safari",
+                    "title": "blockPopUps",
+                    "description": "Block pop-up windows.",
+                    "param": {
+                        "type": "bool",
+                        "values": [
+                            "false"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically",
+                    "domain": "com.apple.Safari",
+                    "title": "blockPopUps",
+                    "description": "Block pop-up windows.",
+                    "param": {
+                        "type": "bool",
+                        "values": [
+                            "false"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "WebKitMediaPlaybackAllowsInline",
+                    "domain": "com.apple.Safari",
+                    "title": "disableAutoPlayingVideo",
+                    "description": "Disable auto-playing video.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback",
+                    "domain": "com.apple.Safari",
+                    "title": "disableAutoPlayingVideo",
+                    "description": "Disable auto-playing video.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "SendDoNotTrackHTTPHeader",
+                    "domain": "com.apple.Safari",
+                    "title": "SendDoNotTrackHTTPHeader",
+                    "description": "Enable \u201cDo Not Track\u201d.",
+                    "param": {
+                        "type": "bool",
+                        "values": [
+                            "tru{0}"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                },
+                {
+                    "key": "InstallExtensionUpdatesAutomatically",
+                    "domain": "com.apple.Safari",
+                    "title": "InstallExtensionUpdatesAutomatically",
+                    "description": "Update extensions automatically.",
+                    "param": {
+                        "type": "bool",
+                        "values": [
+                            "tru{0}"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Safari"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Mail",
+            "keys": [
+                {
+                    "key": "DisableReplyAnimations",
+                    "domain": "com.apple.mail",
+                    "title": "DisableReplyAnimations",
+                    "description": "Disable send and reply animations.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Mail"
+                    }
+                },
+                {
+                    "key": "DisableSendAnimations",
+                    "domain": "com.apple.mail",
+                    "title": "DisableReplyAnimations",
+                    "description": "Disable send and reply animations.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Mail"
+                    }
+                },
+                {
+                    "key": "AddressesIncludeNameOnPasteboard",
+                    "domain": "com.apple.mail",
+                    "title": "AddressesIncludeNameOnPasteboard",
+                    "description": "Copy email addresses as <code>foo@example.com</code> instead of <code>Foo Bar &lt;foo@example.com&gt;</code>.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Mail"
+                    }
+                },
+                {
+                    "key": "DisableInlineAttachmentViewing",
+                    "domain": "com.apple.mail",
+                    "title": "DisableInlineAttachmentViewing",
+                    "description": "Disable inline attachments (just show the icons).",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Mail"
+                    }
+                },
+                {
+                    "key": "SpellCheckingBehavior",
+                    "domain": "com.apple.mail",
+                    "title": "Disable automatic spell checking",
+                    "description": "Disable automatic spell checking.",
+                    "param": {
+                        "type": "string",
+                        "values": [
+                            "NoSpellCheckingEnabled"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Mail"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Terminal & iTerm 2",
+            "keys": [
+                {
+                    "key": "StringEncodings",
+                    "domain": "com.apple.terminal",
+                    "title": "StringEncodings",
+                    "description": "Only use UTF-8.",
+                    "param": {
+                        "type": "array",
+                        "values": [
+                            "4"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Terminal"
+                    }
+                },
+                {
+                    "key": "FocusFollowsMouse",
+                    "domain": "com.apple.terminal",
+                    "title": "FocusFollowsMouse",
+                    "description": "Enable \u201cfocus follows mouse\u201d for Terminal.app and all X11 apps, i.e. hover over a window and start typing in it without clicking first.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Terminal"
+                    }
+                },
+                {
+                    "key": "wm_ffm",
+                    "domain": "org.x.X11",
+                    "title": "FocusFollowsMouse",
+                    "description": "Enable \u201cfocus follows mouse\u201d for Terminal.app and all X11 apps, i.e. hover over a window and start typing in it without clicking first.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Terminal"
+                    }
+                },
+                {
+                    "key": "SecureKeyboardEntry",
+                    "domain": "com.apple.terminal",
+                    "title": "SecureKeyboardEntry",
+                    "description": "Enable Secure Keyboard Entry. See: <a hef=\"https://security.stackexchange.com/a/47786/8918\">https://security.stackexchange.com/a/47786/8918</a>.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Terminal"
+                    }
+                },
+                {
+                    "key": "ShowLineMarks",
+                    "domain": "com.apple.Terminal",
+                    "title": "ShowLineMarks",
+                    "description": "Disable the annoying line marks.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "0"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Terminal"
+                    }
+                },
+                {
+                    "key": "PromptOnQuit",
+                    "domain": "com.googlecode.iterm2",
+                    "title": "PromptOnQuit",
+                    "description": "Don\u2019t display the annoying prompt when quitting iTerm",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Terminal"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Time Machine",
+            "keys": []
+        },
+        {
+            "name": "Activity Monitor",
+            "keys": [
+                {
+                    "key": "OpenMainWindow",
+                    "domain": "com.apple.ActivityMonitor",
+                    "title": "OpenMainWindow",
+                    "description": "Show the main window when launching Activity Monitor.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall \"Activity Monitor\""
+                    }
+                },
+                {
+                    "key": "IconType",
+                    "domain": "com.apple.ActivityMonitor",
+                    "title": "IconType",
+                    "description": "Visualize CPU usage in the Activity Monitor Dock icon.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "5"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall \"Activity Monitor\""
+                    }
+                },
+                {
+                    "key": "ShowCategory",
+                    "domain": "com.apple.ActivityMonitor",
+                    "title": "ShowCategory",
+                    "description": "Show all processes in Activity Monitor.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "0"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall \"Activity Monitor\""
+                    }
+                },
+                {
+                    "key": "SortColumn",
+                    "domain": "com.apple.ActivityMonitor",
+                    "title": "SortColumnCpuUsage",
+                    "description": "Sort Activity Monitor results by CPU usage.",
+                    "param": {
+                        "type": "string",
+                        "values": [
+                            "CPUUsage"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall \"Activity Monitor\""
+                    }
+                },
+                {
+                    "key": "SortDirection",
+                    "domain": "com.apple.ActivityMonitor",
+                    "title": "SortColumnCpuUsage",
+                    "description": "Sort Activity Monitor results by CPU usage.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "0"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall \"Activity Monitor\""
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Address Book, Dashboard, iCal, TextEdit, and Disk Utility",
+            "keys": [
+                {
+                    "key": "ABShowDebugMenu",
+                    "domain": "com.apple.addressbook",
+                    "title": "ABShowDebugMenu",
+                    "description": "Enable the debug menu in Address Book.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall \"Address Book\" Calendar Contacts iCal"
+                    }
+                },
+                {
+                    "key": "devmode",
+                    "domain": "com.apple.dashboard",
+                    "title": "devmode",
+                    "description": "Enable Dashboard dev mode (allows keeping widgets on the desktop).",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall \"Address Book\" Calendar Contacts iCal"
+                    }
+                },
+                {
+                    "key": "IncludeDebugMenu",
+                    "domain": "com.apple.iCal",
+                    "title": "IncludeDebugMenu",
+                    "description": "Enable the debug menu in iCal (pre-10.8).",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall \"Address Book\" Calendar Contacts iCal"
+                    }
+                },
+                {
+                    "key": "PlainTextEncoding",
+                    "domain": "com.apple.TextEdit",
+                    "title": "PlainTextEncoding",
+                    "description": "Open and save files as UTF-8 in TextEdit.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "4"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall \"Address Book\" Calendar Contacts iCal"
+                    }
+                },
+                {
+                    "key": "PlainTextEncodingForWrite",
+                    "domain": "com.apple.TextEdit",
+                    "title": "PlainTextEncoding",
+                    "description": "Open and save files as UTF-8 in TextEdit.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "4"
+                        ]
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall \"Address Book\" Calendar Contacts iCal"
+                    }
+                },
+                {
+                    "key": "DUDebugMenuEnabled",
+                    "domain": "com.apple.DiskUtility",
+                    "title": "DUDebugMenuEnabled",
+                    "description": "Enable the debug menu in Disk Utility.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall \"Address Book\" Calendar Contacts iCal"
+                    }
+                },
+                {
+                    "key": "advanced-image-options",
+                    "domain": "com.apple.DiskUtility",
+                    "title": "DUDebugMenuEnabled",
+                    "description": "Enable the debug menu in Disk Utility.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall \"Address Book\" Calendar Contacts iCal"
+                    }
+                },
+                {
+                    "key": "MGPlayMovieOnOpen",
+                    "domain": "com.apple.QuickTimePlayerX",
+                    "title": "MGPlayMovieOnOpen",
+                    "description": "Auto-play videos when opened with QuickTime Player.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall \"Address Book\" Calendar Contacts iCal"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Mac App Store",
+            "keys": [
+                {
+                    "key": "WebKitDeveloperExtras",
+                    "domain": "com.apple.appstore",
+                    "title": "WebKitDeveloperExtras",
+                    "description": "Enable the WebKit Developer Tools in the Mac App Store.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "ShowDebugMenu",
+                    "domain": "com.apple.appstore",
+                    "title": "ShowDebugMenu",
+                    "description": "Enable Debug Menu in the Mac App Store.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "AutomaticCheckEnabled",
+                    "domain": "com.apple.SoftwareUpdate",
+                    "title": "AutomaticCheckEnabled",
+                    "description": "Enable the automatic update check.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "ScheduleFrequency",
+                    "domain": "com.apple.SoftwareUpdate",
+                    "title": "ScheduleFrequency",
+                    "description": "Check for software updates daily, not just once per week.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "1"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "AutomaticDownload",
+                    "domain": "com.apple.SoftwareUpdate",
+                    "title": "AutomaticDownload",
+                    "description": "Download newly available updates in background.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "1"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "CriticalUpdateInstall",
+                    "domain": "com.apple.SoftwareUpdate",
+                    "title": "CriticalUpdateInstall",
+                    "description": "Install System data files & security updates.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "1"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "ConfigDataInstall",
+                    "domain": "com.apple.SoftwareUpdate",
+                    "title": "ConfigDataInstall",
+                    "description": "Automatically download apps purchased on other Macs.",
+                    "param": {
+                        "type": "int",
+                        "values": [
+                            "1"
+                        ]
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "AutoUpdate",
+                    "domain": "com.apple.commerce",
+                    "title": "AutoUpdate",
+                    "description": "Turn on app auto-update.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": []
+                },
+                {
+                    "key": "AutoUpdateRestartRequired",
+                    "domain": "com.apple.commerce",
+                    "title": "AutoUpdateRestartRequired",
+                    "description": "Allow the App Store to reboot machine on macOS updates.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": []
+                }
+            ]
+        },
+        {
+            "name": "Photos",
+            "keys": [
+                {
+                    "key": "disableHotPlug",
+                    "host": "-currentHost",
+                    "domain": "com.apple.ImageCapture",
+                    "title": "disableHotPlug",
+                    "description": "Prevent Photos from opening automatically when devices are plugged in.",
+                    "param": {
+                        "type": "bool"
+                    },
+                    "versions": [],
+                    "after": {
+                        "command": "killall Photos"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Messages",
+            "keys": []
+        },
+        {
+            "name": "Spotlight",
+            "keys": [
+                {
+                    "key": "Exclusions",
+                    "domain": "/.Spotlight-V100/VolumeConfiguration",
+                    "title": "Exclusions",
+                    "description": "Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed before. Use <code>sudo mdutil -i off \"/Volumes/foo\"</code> to stop indexing any volume.",
+                    "param": {
+                        "type": "array",
+                        "values": [
+                            "/Volumes"
+                        ]
+                    },
+                    "versions": [],
+                    "sudo": true
+                }
+            ]
+        }
+    ]
+}

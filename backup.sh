@@ -41,7 +41,7 @@ echo "
 
 ./src/backup/homebrew.sh
 ./src/backup/vscode-extensions.sh
-# TODO: defaults etc
+python3 ./src/backup/defaults.py
 
 
 
