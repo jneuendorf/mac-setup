@@ -39,7 +39,7 @@ echo "
 
 ./src/backup/homebrew.sh
 ./src/backup/vscode-extensions.sh
-python3 ./src/backup/defaults.py
+python3 ./src/backup/macosx-prefs.py
 
 
 

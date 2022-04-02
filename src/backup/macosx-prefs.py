@@ -3,7 +3,11 @@ from pathlib import Path
 import subprocess
 
 
-print('> backing up macOS preferences to ~/.macos_prefs.json')
+PREFS_FILENAME = '~/.macos_prefs.json'
+PREFS_FILE_PATH = Path(PREFS_FILENAME).expanduser()
+
+
+print(f'> backing up macOS preferences to {PREFS_FILENAME}')
 
 
 def get_read_command(item: dict) -> str:
@@ -45,6 +49,47 @@ def run_command(command, sudo=False) -> tuple[bool, str]:
         success = error.returncode == 0
         response = error.output
     return success, response.decode('utf-8')
+
+
+SKIP_SUDO = True
+
+
+if __name__ == '__main__':
+    with open(Path(__file__).resolve().parent / 'macosx-prefs.json') as file:
+        defaults_data: dict[str, list[dict]] = json.load(file)
+        used_keys = set()
+        prefs = []
+
+        for source, items in defaults_data.items():
+            for item in items:
+                for key_item in item['keys']:
+                    key = (key_item['domain'], key_item['key'])
+                    assert key not in used_keys, (
+                        f'duplicate key {key}'
+                    )
+                    used_keys.add(key)
+
+                    command = get_read_command(key_item)
+                    if key_item.get('sudo'):
+                        if SKIP_SUDO:
+                            continue
+
+                        print('root access required for:', command)
+                        do_sudo = input('Continue with password? (y/n) ')
+                        if do_sudo.lower() != 'y':
+                            continue
+
+                    # print(get_write_command(key_item).format(value=2))
+                    success, output = run_command(command)
+                    if success:
+                        prefs.append([*key, output.strip()])
+                        # print()
+                        # print(command)
+                        # print(output)
+
+    # print(json.dumps(prefs, indent=2))
+    with PREFS_FILE_PATH.open('w') as file:
+        json.dump(prefs, file)
 
 
 # TODO: The following commands don't fit the json structure or are not `defaults`, but may be useful nonetheless
@@ -99,32 +144,3 @@ def run_command(command, sudo=False) -> tuple[bool, str]:
 # {'label': 'Disable automatic emoji substitution (i.e. use plain text smileys).', 'command': 'defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool {0}', 'type': 'boolean'}
 # {'label': 'Disable smart quotes as it’s annoying for messages that contain code.', 'command': 'defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool {0}', 'type': 'boolean'}
 # {'label': 'Disable continuous spell checking.', 'command': 'defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool {0}', 'type': 'boolean'}
-
-
-if __name__ == '__main__':
-    with open(Path(__file__).resolve().parent / 'defaults.json') as file:
-        defaults_data: dict[str, list[dict]] = json.load(file)
-        used_keys = set()
-        prefs = []
-
-        for source, items in defaults_data.items():
-            for item in items:
-                for key_item in item['keys']:
-                    key = (key_item['domain'], key_item['key'])
-                    assert key not in used_keys, (
-                        f'duplicate key {key}'
-                    )
-                    used_keys.add(key)
-
-                    command = get_read_command(key_item)
-                    if key_item.get('sudo'):
-                        print('root access required for:', command)
-
-                    # print(get_write_command(key_item).format(value=2))
-                    success, output = run_command(command)
-                    if success:
-                        prefs.append([*key, output.strip()])
-                        # print()
-                        # print(command)
-                        # print(output)
-    print(json.dumps(prefs, indent=2))
