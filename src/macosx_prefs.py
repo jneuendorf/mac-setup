@@ -51,10 +51,7 @@ def run_command(command, sudo=False) -> tuple[bool, str]:
     return success, response.decode('utf-8')
 
 
-SKIP_SUDO = True
-
-
-if __name__ == '__main__':
+def backup_prefs(skip_sudo=True):
     with open(Path(__file__).resolve().parent / 'macosx-prefs.json') as file:
         defaults_data: dict[str, list[dict]] = json.load(file)
         used_keys = set()
@@ -71,7 +68,7 @@ if __name__ == '__main__':
 
                     command = get_read_command(key_item)
                     if key_item.get('sudo'):
-                        if SKIP_SUDO:
+                        if skip_sudo:
                             continue
 
                         print('root access required for:', command)
@@ -90,6 +87,11 @@ if __name__ == '__main__':
     # print(json.dumps(prefs, indent=2))
     with PREFS_FILE_PATH.open('w') as file:
         json.dump(prefs, file)
+
+
+def restore_prefs():
+    ...
+
 
 
 # TODO: The following commands don't fit the json structure or are not `defaults`, but may be useful nonetheless
