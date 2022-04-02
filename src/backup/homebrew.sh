@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-brew bundle ~/.Brewfile
+brew bundle dump --force --file=~/.Brewfile

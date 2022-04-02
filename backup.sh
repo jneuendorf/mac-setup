@@ -5,9 +5,7 @@ mackup_cfg="$1"
 
 if [[ "$mackup_cfg" != "" ]]; then
     mackup_cfg="$1"
-    if [ -f ~/.vscode_extensions ]; then
-        #
-    else
+    if [ ! -f "$mackup_cfg" ]; then
         echo "Invalid mackup config path '$1'. Exiting..."
         exit 1
     fi
@@ -50,8 +48,8 @@ if [ $(which mackup) ]; then
     mackup_bin=$(which mackup)
 else
     cd mackup
-    # pipenv install
-    # pipenv run make develop
+    pipenv install
+    pipenv run make develop
     mackup_bin="pipenv run mackup"
 fi
 
