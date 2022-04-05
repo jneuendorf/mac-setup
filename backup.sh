@@ -22,6 +22,7 @@ cp "$mackup_cfg" ~/.mackup.cfg
 
 
 
+# NOTE: mackup automatically backs up the configs' apps
 echo "
 >> Copying application configs..."
 
@@ -37,13 +38,13 @@ done
 echo "
 >> Running backup preparation scripts..."
 
-./src/backup/homebrew.sh
-./src/backup/vscode-extensions.sh
-python3 ./src/backup/macosx_prefs.py
+src/backup/homebrew.sh
+src/backup/vscode-extensions.sh
+src/backup/macos-prefs.sh
 
 
 
-# FIND OUT WHICH MACKUP BINARY TO USE
+# FIND OUT WHICH MACKUP EXECUTABLE TO USE
 if [ $(which mackup) ]; then
     mackup_bin=$(which mackup)
 else
@@ -56,23 +57,6 @@ fi
 
 
 echo "
->> Finalizing mackup config (applications_to_sync)..."
-
-echo "[applications_to_sync]" >> ~/.mackup.cfg
-apps_to_sync=$(sed 's/ - //g' <<< $($mackup_bin list | grep -- '- '))  # remove ' - ' from all list items
-for app in $apps_to_sync
-do
-    echo "$app" >> ~/.mackup.cfg
-done
-
-
-
-echo "
 >> Running mackup..."
 
-$mackup_bin backup
-
-
-# TODO
-# echo "
-# >> Generating standalone restore binary"
+$mackup_bin backup --copy --force

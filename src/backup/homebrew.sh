@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-brew bundle dump --force --file=~/.Brewfile
+if [ $(which brew) ]; then
+    echo "> backing up homebrew to ~/.Brewfile"
+    brew bundle dump --force --file=~/.Brewfile
+fi
