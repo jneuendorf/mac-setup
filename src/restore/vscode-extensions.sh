@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 if [ -f ~/.vscode_extensions ]; then
     extensions=$(cat ~/.vscode_extensions)
 

@@ -37,15 +37,17 @@ A script for setting up a new macos machine for my needs
 ### Backup
 
 - ~~[ ] user account(s)~~
-- [ ] dot files
-- [ ] homebrew
-- [ ] homebrew casks
-- [ ] internet accounts (i.e. iCloud and Mail)
-- [ ] application configs (e.g. Atom)
-- [ ] application licenses
-- [ ] syncing unsynced data (e.g. `~/Pictures`)
-- [ ] macOS settings (mostly `defaults ...`, see https://github.com/jneuendorf/AdvancedSettingsMacOS)
-- licenses
+- [x] dot files
+- [x] homebrew
+- [x] homebrew casks
+- ~~[ ] internet accounts (i.e. iCloud and Mail)~~
+  - decided, not to sync those, since `mackup` is single-user only
+- [x] application configs (e.g. Atom)
+- [x] application licenses
+  - application specific, thus handled by `mackup`
+- [x] syncing unsynced data (e.g. `~/Pictures`)
+  - custom `mackup` config can be saved to `~/.mackup/my-files.cfg` specifying any user files (see [Add support for an application or (almost) any file or directory](https://github.com/lra/mackup/tree/master/doc#add-support-for-an-application-or-almost-any-file-or-directory))
+- [x] macOS settings (mostly `defaults ...`, see https://github.com/jneuendorf/AdvancedSettingsMacOS)
 
 
 ### Restore
