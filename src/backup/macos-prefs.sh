@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# src/macos-prefs.sh src/backup/macos_prefs.py
-
 echo "> backing up macOS preferences to ~/.macos_prefs/"
 
 mkdir -p ~/.macos_prefs/
