@@ -1,31 +1,28 @@
 #!/usr/bin/env bash
 
-
-mackup_cfg="$1"
-
-if [[ "$mackup_cfg" != "" ]]; then
-    mackup_cfg="$1"
-    if [ ! -f "$mackup_cfg" ]; then
-        echo "Invalid mackup config path '$1'. Exiting..."
-        exit 1
-    fi
+if [[ "$1" != "" ]]; then
+    git clone "$1" mackup_clone
+    mackup_dir="mackup_clone"
 else
-    mackup_cfg=src/mackup.cfg
+    mackup_dir="mackup"
 fi
+
+
+CURRENT_DIR=$(pwd)
+# According to src/mackup.cfg
+BACKUP_DIR=~/macos-backup
 
 
 
 echo "
 >> Copying mackup config stub..."
-
-cp "$mackup_cfg" ~/.mackup.cfg
+cp src/mackup.cfg ~/.mackup.cfg
 
 
 
 # NOTE: mackup automatically backs up the configs' apps
 echo "
 >> Copying application configs..."
-
 mkdir -p ~/.mackup/
 for cfg in $(ls src/configs/)
 do
@@ -37,26 +34,42 @@ done
 
 echo "
 >> Running backup preparation scripts..."
-
 src/backup/homebrew.sh
 src/backup/vscode-extensions.sh
 src/backup/macos-prefs.sh
+src/backup/xcode-select.sh
 
 
 
-# FIND OUT WHICH MACKUP EXECUTABLE TO USE
-if [ $(which mackup) ]; then
-    mackup_bin=$(which mackup)
-else
-    cd mackup
-    pipenv install
-    pipenv run make develop
-    mackup_bin="pipenv run mackup"
-fi
+
+cd $mackup_dir
+# pipenv install
+# pipenv run make develop
 
 
 
 echo "
 >> Running mackup..."
+pipenv run mackup backup --copy --force
 
-$mackup_bin backup --copy --force
+
+
+echo "
+>> Generating restore script..."
+# Copy this project (and mackup (the clone if necessary)) to the backup location
+# so it can be run on a fresh machine
+cd "$CURRENT_DIR"
+if [[ -d $BACKUP_DIR/mackup ]] || [[ -f $BACKUP_DIR/mackup ]]; then
+    echo "WARNING: There is a file/folder 'mackup' in the backup folder. Please make sure you don't backup any files/folders with this name from your home directory."
+fi
+cp -R $mackup_dir $BACKUP_DIR/mackup/
+# Rename 'mackup_clone' to 'mackup' if necessary
+# mv -f $BACKUP_DIR/mackup_clone $BACKUP_DIR/mackup
+cp restore.sh $BACKUP_DIR
+mkdir -p $BACKUP_DIR/src/restore/
+cp -R src/restore/. $BACKUP_DIR/src/restore/
+
+
+echo "
+>> Done!
+"

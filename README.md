@@ -15,6 +15,28 @@ A script for setting up a new macos machine for my needs
 
 
 
+## Usage
+
+
+
+### Backup
+
+```bash
+./backup
+# Custom repo clone
+# - The clone must be executable in the same way as https://github.com/lra/mackup.git
+./backup 'git@github.com:jneuendorf/mackup.git --branch enable_glob'
+```
+
+
+
+### Restore
+
+```bash
+./restore
+```
+
+
 ## Related Projects
 
 - https://github.com/Aerolab/setup

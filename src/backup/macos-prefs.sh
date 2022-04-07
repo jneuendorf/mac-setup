@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "> backing up macOS preferences to ~/.macos_prefs/"
+echo "> Backing up macOS preferences to ~/.macos_prefs/"
 
 mkdir -p ~/.macos_prefs/
 for domain in $(defaults domains)

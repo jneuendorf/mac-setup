@@ -8,6 +8,6 @@ fi
 
 
 if [ "$extensions" != "" ]; then
-    echo "> backing up VSCode extensions to ~/.vscode_extensions"
+    echo "> Backing up VSCode extensions to ~/.vscode_extensions"
     echo "$extensions" > ~/.vscode_extensions
 fi
