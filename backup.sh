@@ -24,8 +24,7 @@ cp src/mackup.cfg ~/.mackup.cfg
 echo "
 >> Copying application configs..."
 mkdir -p ~/.mackup/
-for cfg in $(ls src/configs/)
-do
+for cfg in $(ls src/configs/); do
     echo "copying src/configs/$cfg -> ~/.mackup/$cfg"
     cp "src/configs/$cfg" ~/.mackup
 done
@@ -41,15 +40,11 @@ src/backup/xcode-select.sh
 
 
 
-
+echo "
+>> Running mackup..."
 cd $mackup_dir
 # pipenv install
 # pipenv run make develop
-
-
-
-echo "
->> Running mackup..."
 pipenv run mackup backup --copy --force
 
 
