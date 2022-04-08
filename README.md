@@ -60,10 +60,13 @@ This backup folder can be moved around (most likely it contains hidden files!) a
 ./backup 'git@github.com:jneuendorf/mackup.git --branch enable_glob'
 ```
 
-To specify additional personal files to be backed up run `./custom_config.sh`.
-This creates `custom.cfg` in the current working directory and open's it for editing
+To specify additional personal files to be backed up run `./customize.sh`.
+This creates `custom.cfg` and `mackup.cfg` in the current working directory and open's the former for editing
 (see the [Mackup docs](https://github.com/lra/mackup/tree/9f7b8473c509831ccc489e2b7842f8682136ed76/doc#add-support-for-an-application-or-almost-any-file-or-directory)).
-The backup process then picks it up automatically.
+The backup process then picks them up automatically.
+
+You can save the backup directly on an external storage device
+by editing the `mackup.cfg`'s `path` option, e.g. `path = /Volumes/MyDrive`.
 
 
 

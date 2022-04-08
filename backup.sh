@@ -22,8 +22,14 @@ for cfg in $(ls src/configs/); do
     echo "copying src/configs/$cfg -> ~/.mackup/$cfg"
     cp "src/configs/$cfg" ~/.mackup/
 done
+
 echo "> Copying Mackup config ..."
-cp src/mackup.cfg ~/.mackup.cfg
+if [ -f mackup.cfg ]; then
+    cp mackup.cfg ~/.mackup.cfg
+else
+    cp src/mackup.cfg ~/.mackup.cfg
+fi
+
 if [ -f custom.cfg ]; then
     echo "> Copying custom config ..."
     cp custom.cfg ~/.mackup/
