@@ -1,7 +1,17 @@
 #!/usr/bin/env bash
 
 if [[ "$1" != "" ]]; then
-    git clone "$1" mackup_clone
+    custom_cfg="$1"
+    if [ ! -f "$custom_cfg" ]; then
+        echo "Custom config file doesn't exist '$1'. Exiting..."
+        exit 1
+    fi
+else
+    custom_cfg=src/custom.cfg
+fi
+
+if [[ "$2" != "" ]]; then
+    git clone "$2" mackup_clone
     mackup_dir="mackup_clone"
 else
     mackup_dir="mackup"
@@ -14,20 +24,18 @@ BACKUP_DIR=~/macos-backup
 
 
 
-echo "
->> Copying mackup config stub..."
-cp src/mackup.cfg ~/.mackup.cfg
-
-
-
 # NOTE: mackup automatically backs up the configs' apps
 echo "
 >> Copying application configs..."
 mkdir -p ~/.mackup/
 for cfg in $(ls src/configs/); do
     echo "copying src/configs/$cfg -> ~/.mackup/$cfg"
-    cp "src/configs/$cfg" ~/.mackup
+    cp "src/configs/$cfg" ~/.mackup/
 done
+echo "> Copying Mackup config ..."
+cp src/mackup.cfg ~/.mackup.cfg
+echo "> Copying custom config ..."
+cp "$custom_cfg" ~/.mackup/
 
 
 
