@@ -31,7 +31,7 @@ done
 echo "> Copying Mackup config ..."
 cp src/mackup.cfg ~/.mackup.cfg
 echo "> Copying custom config ..."
-cp "$custom_cfg" ~/.mackup/
+cp $custom_cfg ~/.mackup/
 
 
 
