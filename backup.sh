@@ -9,8 +9,12 @@ fi
 
 
 CURRENT_DIR=$(pwd)
-# According to src/mackup.cfg
-BACKUP_DIR=~/macos-backup
+if [ -f mackup.cfg ]; then
+    BACKUP_DIR=$(grep "path" mackup.cfg | cut -d '=' -f 2)
+else
+    # According to src/mackup.cfg
+    BACKUP_DIR=~/macos-backup
+fi
 
 
 
@@ -57,7 +61,7 @@ pipenv run mackup backup --copy --force
 
 echo "
 >> Generating restore script..."
-# Copy this project (and mackup (the clone if necessary)) to the backup location
+# Copy this project (including mackup (the clone if necessary)) to the backup location
 # so it can be run on a fresh machine
 cd "$CURRENT_DIR"
 if [[ -d $BACKUP_DIR/mackup ]] || [[ -f $BACKUP_DIR/mackup ]]; then
