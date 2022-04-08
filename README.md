@@ -19,6 +19,10 @@ A script for setting up a new macos machine for my needs
 
 
 
+:warning: All commands must be run from this project's root directory.
+
+
+
 ### Backup
 
 ```bash
@@ -27,6 +31,11 @@ A script for setting up a new macos machine for my needs
 # - The clone must be executable in the same way as https://github.com/lra/mackup.git
 ./backup 'git@github.com:jneuendorf/mackup.git --branch enable_glob'
 ```
+
+To specify additional personal files to be backed up run `./custom_config.sh`.
+This creates `custom.cfg` in the current working directory and open's it for editing
+(see the [Mackup docs](https://github.com/lra/mackup/tree/9f7b8473c509831ccc489e2b7842f8682136ed76/doc#add-support-for-an-application-or-almost-any-file-or-directory)).
+The backup process then picks it up automatically.
 
 
 

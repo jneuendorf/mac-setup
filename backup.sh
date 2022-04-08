@@ -1,17 +1,13 @@
 #!/usr/bin/env bash
 
-if [[ "$1" != "" ]]; then
-    custom_cfg="$1"
-    if [ ! -f "$custom_cfg" ]; then
-        echo "Custom config file doesn't exist '$1'. Exiting..."
-        exit 1
-    fi
+if [ -f custom.cfg ]; then
+    custom_cfg=custom.cfg
 else
     custom_cfg=src/custom.cfg
 fi
 
-if [[ "$2" != "" ]]; then
-    git clone "$2" mackup_clone
+if [[ "$1" != "" ]]; then
+    git clone "$1" mackup_clone
     mackup_dir="mackup_clone"
 else
     mackup_dir="mackup"
@@ -68,7 +64,7 @@ fi
 cp -R $mackup_dir $BACKUP_DIR/mackup/
 # Rename 'mackup_clone' to 'mackup' if necessary
 # mv -f $BACKUP_DIR/mackup_clone $BACKUP_DIR/mackup
-cp restore.sh $BACKUP_DIR
+cp src/restore.sh $BACKUP_DIR
 mkdir -p $BACKUP_DIR/src/restore/
 cp -R src/restore/. $BACKUP_DIR/src/restore/
 
