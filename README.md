@@ -28,9 +28,13 @@ Running [MacPrefs](https://github.com/clintmod/macprefs) didn't work for me.
 Mackup worked well in principle and is actively maintained (big shout-out to @lra!), thus this project is heavily based on [Mackup](https://github.com/lra/mackup).
 
 This project is an extension wrapper around Mackup.
-I.e. arbitrary backup operations can be run before Mackup's backup is being run.
+This way, arbitrary backup operations can be run before Mackup's backup is being run.
 Therefore, the backup is not limited to files being copied/linked, but files can be generated, for example.
 Also some more apps are supported and some apps are better supported (checkout the config files in `src/configs/`).
+
+In addition, I didn't want to upload my backup to some cloud service
+but wanted a local copy in case backing up private data is required
+(even encryption would be pointless if the key is not backed up elsewhere...).
 
 Furthermore, the backup can be restored without any prior user action, i.e. it does not require the user to install software before the backup can be restored.
 

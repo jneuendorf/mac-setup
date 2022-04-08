@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-if [ -f custom.cfg ]; then
-    custom_cfg=custom.cfg
-else
-    custom_cfg=src/custom.cfg
-fi
-
 if [[ "$1" != "" ]]; then
     git clone "$1" mackup_clone
     mackup_dir="mackup_clone"
@@ -30,8 +24,10 @@ for cfg in $(ls src/configs/); do
 done
 echo "> Copying Mackup config ..."
 cp src/mackup.cfg ~/.mackup.cfg
-echo "> Copying custom config ..."
-cp $custom_cfg ~/.mackup/
+if [ -f custom.cfg ]; then
+    echo "> Copying custom config ..."
+    cp custom.cfg ~/.mackup/
+fi
 
 
 
