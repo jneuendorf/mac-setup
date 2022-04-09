@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+CURRENT_DIR=$(pwd)
+
+
+
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # Install pipenv in case we run a local version of mackup
 brew install pipenv
@@ -22,7 +26,14 @@ brew uninstall pipenv
 
 echo "
 >> Running restore post-processing scripts..."
+cd "$CURRENT_DIR"
 src/restore/xcode-select.sh
 src/restore/homebrew.sh
 src/restore/vscode-extensions.sh
 src/restore/macos-prefs.sh
+
+
+
+echo "
+>> Done!
+"

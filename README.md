@@ -8,6 +8,7 @@ A script for backing up some of the macOS configuration that can be restored on 
 
 - everything supported by Mackup
   - Homebrew is taken care of, i.e. the creation of a `Brewfile`
+    - This includes applications managed by [mas](https://github.com/mas-cli/mas#-homebrew-integration)
 - VSCodium extensions
 - macOS preferences
   - There are some limitations:
