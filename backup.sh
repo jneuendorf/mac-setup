@@ -46,15 +46,14 @@ echo "
 src/backup/homebrew.sh
 src/backup/vscode-extensions.sh
 src/backup/macos-prefs.sh
-src/backup/xcode-select.sh
 
 
 
 echo "
 >> Running mackup..."
 cd $mackup_dir
-# pipenv install
-# pipenv run make develop
+ pipenv install
+ pipenv run make develop
 pipenv run mackup backup --copy --force
 
 
