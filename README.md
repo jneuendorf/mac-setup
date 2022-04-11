@@ -1,6 +1,6 @@
 # mac-setup
 
-A script for backing up some of the macOS configuration that can be restored on a blank macOS machine.
+A script for backing up some macOS configuration that can be restored on a blank macOS machine.
 
 
 
@@ -10,11 +10,11 @@ A script for backing up some of the macOS configuration that can be restored on 
   - Homebrew is taken care of, i.e. the creation of a `Brewfile`
     - This includes applications managed by [mas](https://github.com/mas-cli/mas#-homebrew-integration)
 - VSCodium extensions
+  - Only the list of extension names is backed up - not the extensions themselves.
 - macOS preferences
   - There are some limitations:
     - Only user preferences are backup, i.e. power management is missing, I believe
     - Only `defaults` is used. There may be other reasonable configrations that may be accessible differently (i.e. a different command or even using AppleScript (GUI programming)). I am open for additions (issues / pull requests).
-- XCode command line tools
 - Any other *user* files you want. See below.
 
 
@@ -74,6 +74,8 @@ by editing the `mackup.cfg`'s `path` option, e.g. `path = /Volumes/MyDrive`.
 ### Restore
 
 Simply run `./restore.sh` from the backup folder.
+Your `root` password will be required.
+
 
 
 ## Related Projects / Used Resources
