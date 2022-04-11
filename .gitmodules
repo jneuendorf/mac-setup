@@ -1,3 +1,3 @@
 [submodule "mackup"]
 	path = mackup
-	url = /Users/jimneuendorf/Developer/mac-setup/mackup
+	url = git@github.com:jneuendorf/mackup.git
